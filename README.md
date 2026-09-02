@@ -52,18 +52,23 @@ not delay or determine the website response. Metrics are retained for up to
 
 ## Installation: Deploy to Cloudflare
 
+This flow requires a **GitHub account** — Cloudflare's guided deploy creates a
+repository under it to deploy the Worker from. If you'd rather not connect
+GitHub, use [Manual installation](#manual-installation) below instead.
+
 1. Open the **Integration** page for your verified site in the
    [Vicevers dashboard](https://app.vicevers.dev) and select
    **Deploy to Cloudflare**.
-2. Authorize the deployment with your Cloudflare account. Cloudflare copies
-   the Worker into your account, where you remain in control of the code and
-   deployment.
+2. Authorize the deployment with your Cloudflare account and connect (or
+   create) a GitHub account when prompted. Cloudflare copies the Worker into
+   your account, where you remain in control of the code and deployment.
 3. When prompted for `VICEVERS_SITE_KEY`, paste the site key shown in the
    Vicevers dashboard. Cloudflare stores it as an encrypted secret.
 4. Complete the deployment.
-5. In Cloudflare, open the new Worker and go to
-   **Settings > Domains & Routes > Add > Route**. Add `example.com/*` and, if
-   applicable, `www.example.com/*`.
+5. In Cloudflare, open the new Worker and go to its **Domains** tab (not
+   under Settings) → **Add Route**. You'll be asked to pick the domain's
+   zone first, then add `example.com/*` and, if applicable,
+   `www.example.com/*`.
 
 The Worker starts processing traffic only after its route is attached to your
 domain.
@@ -84,9 +89,10 @@ npx wrangler secret put VICEVERS_SITE_KEY
 npx wrangler deploy
 ```
 
-After deployment, add the domain route from
-**Cloudflare > Workers & Pages > vicevers-worker > Settings > Domains & Routes**.
-Use the route shown on the Integration page in the Vicevers dashboard.
+After deployment, add the domain route from **Cloudflare > Workers & Pages >
+vicevers-worker > Domains** (a top-level tab, not under Settings) → **Add
+Route**, picking the domain's zone when asked. Use the route shown on the
+Integration page in the Vicevers dashboard.
 
 ## Updates
 
