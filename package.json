@@ -1,0 +1,15 @@
+{
+  "name": "vicevers-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --experimental-strip-types"
+  },
+  "cloudflare": {
+    "bindings": {
+      "VICEVERS_SITE_KEY": {
+        "description": "Your site's Vicevers key. Copy it from the [Vicevers dashboard](https://app.vicevers.dev) after verifying your domain."
+      }
+    }
+  }
+}

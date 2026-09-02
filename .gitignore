@@ -1,0 +1,20 @@
+# Secrets reales — solo .dev.vars.example va al repo
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Wrangler
+.wrangler/
+wrangler.toml.bak
+
+# Node (por si en algún momento se suma tooling)
+node_modules/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

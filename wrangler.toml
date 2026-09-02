@@ -1,0 +1,18 @@
+name = "vicevers-worker"
+main = "index.ts"
+compatibility_date = "2026-08-01"
+workers_dev = false
+preview_urls = false
+
+# This is a public service endpoint, not a secret.
+[vars]
+VICEVERS_API = "https://api.vicevers.dev/v1/resolve"
+
+# Routes are intentionally omitted because the target zone belongs to the
+# person deploying this Worker. After deployment, attach the appropriate route
+# from Cloudflare > Workers & Pages > Settings > Domains & Routes.
+
+# Do not add VICEVERS_SITE_KEY here. Cloudflare collects it during the guided
+# deployment using .dev.vars.example and stores it as an encrypted secret.
+#
+# Deploy a separate Worker with its own VICEVERS_SITE_KEY for each site.
